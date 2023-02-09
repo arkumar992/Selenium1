@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="5" name="Failed suite [Suite]">
+  <parameter name="UName" value="DemoSalesManager"/>
+  <parameter name="pwd" value="crmsfa"/>
+  <parameter name="url" value="http://leaftaps.com/opentaps"/>
+  <test thread-count="5" verbose="5" name="Test(failed)">
+    <classes>
+      <class name="testCases.TC002_CreateLeadNeg">
+        <methods>
+          <include name="startSuite"/>
+          <include name="setValues"/>
+          <include name="createLead"/>
+          <include name="login"/>
+          <include name="endSuite"/>
+          <include name="startTest"/>
+          <include name="CloseBrowser"/>
+        </methods>
+      </class> <!-- testCases.TC002_CreateLeadNeg -->
+      <class name="testCases.TC005_DeleteLead">
+        <methods>
+          <include name="startSuite"/>
+          <include name="deleteLead"/>
+          <include name="login"/>
+          <include name="endSuite"/>
+          <include name="startTest"/>
+          <include name="CloseBrowser"/>
+          <include name="setValues"/>
+        </methods>
+      </class> <!-- testCases.TC005_DeleteLead -->
+      <class name="testCases.TC006_DuplicateLead">
+        <methods>
+          <include name="startSuite"/>
+          <include name="login"/>
+          <include name="endSuite"/>
+          <include name="duplicateLead"/>
+          <include name="setValues"/>
+          <include name="startTest"/>
+          <include name="CloseBrowser"/>
+        </methods>
+      </class> <!-- testCases.TC006_DuplicateLead -->
+      <class name="testCases.TC004_EditLead">
+        <methods>
+          <include name="setValues"/>
+          <include name="startSuite"/>
+          <include name="login"/>
+          <include name="endSuite"/>
+          <include name="startTest"/>
+          <include name="CloseBrowser"/>
+          <include name="editLead"/>
+        </methods>
+      </class> <!-- testCases.TC004_EditLead -->
+      <class name="testCases.TC001_CreateLead">
+        <methods>
+          <include name="startSuite"/>
+          <include name="login"/>
+          <include name="setValues"/>
+          <include name="endSuite"/>
+          <include name="startTest"/>
+          <include name="CloseBrowser"/>
+          <include name="createLead"/>
+        </methods>
+      </class> <!-- testCases.TC001_CreateLead -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
