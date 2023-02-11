@@ -2,7 +2,7 @@ package selflearnjavaPackage;
 
 public class SwichCaseExample {
 	//practice git hub commit
-	
+	//kumar
 	//test data
 	int no =3;
 	int check;
