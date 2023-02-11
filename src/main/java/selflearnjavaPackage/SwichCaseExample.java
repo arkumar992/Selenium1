@@ -1,7 +1,7 @@
 package selflearnjavaPackage;
 
 public class SwichCaseExample {
-	
+	//practice git hub commit
 	int no =3;
 	int check;
 	public void firstswichcase() {
