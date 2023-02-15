@@ -17,8 +17,10 @@ public class Irctc {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		
+		System.setProperty("webdriver.chrome.driver","C:\\driver\\chromedriver_win32\\chromedriver.exe");
 		ChromeOptions Chrome = new  ChromeOptions();
+		
+		// Chrome.setHeadless(true); Headless browser comments
 		Chrome.addArguments("--disable-notifications");
 		ChromeDriver driver = new ChromeDriver(Chrome);
 		driver.manage().window().maximize();
@@ -33,7 +35,9 @@ public class Irctc {
 		System.out.println(alertText);
 		myAlert.dismiss();*/
 		
-		driver.findElementById("loginText").click();
+		driver.findElementByXPath("//div[@class='text-center h_main_div']//div/a[1]").click();
+		
+		//driver.findElementById("loginText").click();
 		Thread.sleep(2000);
 		driver.findElementById("userId").sendKeys("srarun92");
 		driver.findElementById("pwd").sendKeys("sep468");		

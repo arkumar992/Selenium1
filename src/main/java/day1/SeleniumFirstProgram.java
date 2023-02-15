@@ -10,7 +10,7 @@ public class SeleniumFirstProgram {
 
 	public static void main(String[] args) {
 		
-		System.setProperty("webdriver.chrome.driver","C:\\driver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\driver\\chromedriver_win32\\chromedriver.exe");
 		// TODO Auto-generated method stub
 		RemoteWebDriver  driver = new ChromeDriver();
 		driver.get("http://leaftaps.com/opentaps/");

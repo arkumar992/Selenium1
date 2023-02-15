@@ -18,10 +18,10 @@ public class ReverseString {
 		
 		s.close();
 		String d = c.toString();
-		String e = a.toString();
-		System.out.println(e);
+		//String e = a.toString();
+		//System.out.println(e);
 		System.out.println(d);
-		if(d.equals(e))
+		if(d.equals(a))
 		{
 		
 			System.out.println("Palindrome");
@@ -33,6 +33,28 @@ public class ReverseString {
 		}
 		
 		
+		System.out.println("Method two without inbult method ************");
+		String p ="";
+		
+		for(int i= a.length()-1;i>=0;i--) {
+			
+			char y = a.charAt(i);
+			p =p+y;
+			
+			
+		}
+		
+		System.out.println("value of p is " +p);
+		if(a.equals(p))
+		{
+		
+			System.out.println("P is Palindrome");
+		}
+		
+		else
+		{
+			System.out.println("P is Not palindrome");
+		}
 	}
 	
 	public void sum()
@@ -49,4 +71,8 @@ public class ReverseString {
 	{
 		System.out.println("String parameter");
 	}
+	
+	
+	
+	
 }

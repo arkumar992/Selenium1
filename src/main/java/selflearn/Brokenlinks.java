@@ -14,12 +14,12 @@ public class Brokenlinks {
 
 	public static void main(String[] args) throws MalformedURLException, IOException {
 		// TODO Auto-generated method stub
-		
+		System.setProperty("webdriver.chrome.driver", "C://Driver//chromedriver_win32//chromedriver.exe");
 		ChromeDriver driver = new ChromeDriver();
 		driver.get("http://www.tnstc.in/");
 		driver.manage().window().maximize();
 		List<WebElement> linklist = driver.findElementsByTagName("a");
-		linklist.addAll(driver.findElementsByTagName("img"));
+		//linklist.addAll(driver.findElementsByTagName("img"));
 		System.out.println("TotalLinklist : " +linklist.size());
 		
 		
