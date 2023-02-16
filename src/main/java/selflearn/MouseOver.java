@@ -17,7 +17,7 @@ public class MouseOver {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
+		//test
 		// Tab to next element in single command ******************
 		Actions ac = new Actions(driver);
 		ac.moveToElement(driver.findElementById("email")).sendKeys("test").click(driver.findElementById("pass")).click().build().perform();
