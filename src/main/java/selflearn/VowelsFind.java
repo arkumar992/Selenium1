@@ -63,7 +63,7 @@ public class VowelsFind {
 		
 		VowelsFind d = new VowelsFind();
 		
-		int s= d.countvowel("adi");
+		int s= d.countvowel("fgfgieaaaAE");
 		System.out.println("no of vowels "+s);
 		
 		
