@@ -10,6 +10,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,12 +36,15 @@ public class Irctc {
 		System.out.println(alertText);
 		myAlert.dismiss();*/
 		
+		//input[@formcontrolname='userid']
+	
 		driver.findElementByXPath("//div[@class='text-center h_main_div']//div/a[1]").click();
 		
 		//driver.findElementById("loginText").click();
 		Thread.sleep(2000);
-		driver.findElementById("userId").sendKeys("srarun92");
-		driver.findElementById("pwd").sendKeys("sep468");		
+		driver.findElementByXPath("//input[@formcontrolname='userid']").sendKeys("srandal");
+		//old driver.findElementById("userId").sendKeys("srarun92");
+		driver.findElementByXPath("//input[@formcontrolname='password']").sendKeys("Tamil@2020");		
 		Scanner cp = new Scanner(System.in);
 		System.out.println("Enter the captcha");
 		String s = cp.nextLine();
@@ -58,19 +62,44 @@ public class Irctc {
 		driver.findElementByXPath("//button[text() = 'SIGN IN']").click();
 		Thread.sleep(2000);
 		System.out.println("Sign in done");
-		Thread.sleep(2000);
-		driver.findElementByXPath("//input[@placeholder='From*']").sendKeys("TBM");
+		Thread.sleep(6000);
+		//driver.findElementByXPath("//input[@placeholder='From*']").sendKeys("TBM");
+		//driver.findElementByXPath("//label[text()='From']//preceding-sibling::p-autocomplete").sendKeys("TBM");
+		
+		Actions ac = new Actions(driver);
+		
+		WebElement from = driver.findElementByXPath("//label[text()='From']");
+		ac.moveToElement(from).click().build().perform();
+		//driver.findElementByXPath("from").sendKeys("TBM");
+		//ac.sendKeys(from, "TeM");
+		
+		driver.findElementByXPath("//label[text()='From']//preceding-sibling::p-autocomplete/span/input").sendKeys("TBM");
 		Thread.sleep(3000);
 		driver.findElementByXPath("//span[text() ='TAMBARAM - TBM']").click();
 		
-		driver.findElementByXPath("//input[@placeholder='To*']").sendKeys("TEN");	
-		
+		//driver.findElementByXPath("//input[@placeholder='To*']").sendKeys("TEN");	
+		driver.findElementByXPath("//p-autocomplete//following::input[@role='searchbox']").sendKeys("TEN");	
 		Thread.sleep(3000);
 		driver.findElementByXPath("//span[text() ='TIRUNELVELI - TEN']").click();
-		driver.findElementByXPath("//input[@placeholder='Journey Date(dd-mm-yyyy)*']").clear();
-		driver.findElementByXPath("//input[@placeholder='Journey Date(dd-mm-yyyy)*']").sendKeys("11-11-2019",Keys.ENTER);
 		Thread.sleep(3000);
-		String Train_name = driver.findElementById("T_12631").getText();
+		////span[contains(@class,'calendar')]
+		ac.moveToElement(driver.findElementByXPath("//p-calendar[@id='jDate']")).click().build().perform();
+		//driver.findElementByXPath("//input[@placeholder='Journey Date(dd-mm-yyyy)*']").clear();
+		
+		
+		
+		 ac.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).build().perform();
+		 ac.sendKeys(Keys.BACK_SPACE).build().perform();
+		//ac.click(driver.findElementByXPath("//p-calendar[@id='jDate']")).sendKeys(Keys.CONTROL + "a").build().perform();
+		Thread.sleep(6000);
+		//ac.click(driver.findElementByXPath("//p-calendar[@id='jDate']")).sendKeys(Keys.BACK_SPACE).build().perform();
+		ac.click(driver.findElementByXPath("//p-calendar[@id='jDate']")).sendKeys("14/04/2023").build().perform();
+		driver.findElementByXPath("//button[text()='Search']").click();
+		//driver.findElementByXPath("//span[contains(@class,'calendar')]/input)").sendKeys("13/04/2023",Keys.ENTER);
+
+		//driver.findElementByXPath("//input[@placeholder='Journey Date(dd-mm-yyyy)*']").sendKeys("11-11-2019",Keys.ENTER);
+		Thread.sleep(3000);
+		String Train_name = driver.findElementByXPath("//strong[contains(text(),'12631')]").getText();
 		System.out.println("Train name: " +Train_name);
 		
 		
@@ -80,16 +109,19 @@ public class Irctc {
 		//driver.findElementByXPath("//*[@id='T_12631']//parent::div//parent::div//parent::div//parent::div//button").click();
 	
 		
-		WebElement element = driver.findElementByXPath("//button[contains(@aria-label,'12631')]");
+		WebElement element = driver.findElementByXPath("//strong[contains(text(),'12631')]/parent::div/parent::div/following-sibling::div[4]//table//td[1]");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", element);
-		Thread.sleep(7000);
-		String s1 = driver.findElementByXPath("//span[@class='waitingstatus']").getText();
-		System.out.println("Text: " +s1);
+		js.executeScript("arguments[0].scrollIntoView();", element);
+		//js.executeScript("arguments[0].click();", element);
 		
+		Thread.sleep(7000);
+		element.click();
+		String s1 = driver.findElementByXPath("//strong[contains(text(),'12631')]/parent::div/parent::div/following-sibling::div[6]//table//td[2]/div/div[2]").getText();
+		System.out.println("Text: " +s1);
+		//  //button[contains(text(), 'Book')]
 		if (s1.contains("AVAILABLE"))
 		{
-			driver.findElementByXPath("//button[text()= ' Book Now']").click();
+			driver.findElementByXPath("//button[text()= ' Book Now']").click();  /// Need to update x path
 		}
 		else
 		{
