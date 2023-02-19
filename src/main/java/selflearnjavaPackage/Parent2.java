@@ -7,7 +7,7 @@ public class Parent2 extends Parent {
 		 test1();
 		
 	}
-	
+	//test 2
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Parent2 p = new Parent2();
